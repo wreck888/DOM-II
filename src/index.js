@@ -9,6 +9,11 @@ logoHead.addEventListener('mouseover', function(event) {
     event.target.style.color = 'purple'
 });
 
+// Mouse Out
+logoHead.addEventListener('mouseout', (event) => {
+    event.target.style.color = 'orange'
+});
+
 //Click 
 const section = document.querySelector('.inverse-content');
 section.addEventListener('click', function(event) {
@@ -16,7 +21,7 @@ section.addEventListener('click', function(event) {
 });
 
 //keydown
-const sectionP = document.querySelectorAll('.btn')
+const sectionP = document.querySelector('h2')
 function enterKey(e){
     if (e.key ==='Enter'){
         sectionP.style.color = 'yellow';
@@ -29,22 +34,31 @@ section.addEventListener('dblclick', function(e){
     e.target.style.color = 'blue'
 });
 
+// wheel
+const headerImg = document.querySelector('.intro img')
 
-// const navC = document.querySelectorAll('container')
-// navC.addEventListener('click', function(evt){
-//     evt.target.style.background = 'blue'
-// });
+function wheelScroll(event) {
+    event.preventDefault();
+  
+    if (event.deltaY < 0) {
+      scale *= event.deltaY * -4;
+    }
+    else {
+      scale /= event.deltaY * 4;
+    }
+    scale = Math.min(Math.max(.125, scale), 4);
+    headerImg.style.transform = `scale(${scale})`;
+  }
+  let scale = 1;
+document.onwheel = wheelScroll;
 
 
-// const links = document.querySelector('.nav-link');
-// links.addEventListener('click', function(evt) {
-//     evt.preventDefault();
-//     evt.target.style.color = 'pink'
-// });
 
-// const contentSection = document.querySelectorAll('.img-content')
 
-// contentSection.addEventListener('click', function(evt){
-//     contentSection.classList.toggle('large');
-// });
 
+
+
+const links = document.querySelector('.nav-link');
+links.addEventListener('click', function(evt) {
+    evt.preventDefault();
+});
