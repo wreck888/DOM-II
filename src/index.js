@@ -53,7 +53,6 @@ function wheelScroll(event) {
 document.onwheel = wheelScroll;
 
 //keyup
-
 function escKey(e){
     if (e.key ==='Escape'){
         alert('Do Not Escape!');
@@ -61,8 +60,24 @@ function escKey(e){
 }
 document.addEventListener('keyup', escKey)
 
+//Mouse down
+logoHead.addEventListener('mousedown', function(event) {
+    event.target.style.color = 'pink'
+   });
+//Mouse Up
+logoHead.addEventListener('mouseup', function(event) {
+    event.target.style.color = 'blue'
+   });
+
+//focus
+const destination = document.querySelector('nav a')
+destination.addEventListener('focus', function(event){
+    event.target.style.color = 'red'
+});
+
 
 const links = document.querySelector('.nav-link');
 links.addEventListener('click', function(evt) {
     evt.preventDefault();
 });
+
