@@ -52,10 +52,14 @@ function wheelScroll(event) {
   let scale = 1;
 document.onwheel = wheelScroll;
 
+//keyup
 
-
-
-
+function escKey(e){
+    if (e.key ==='Escape'){
+        alert('Do Not Escape!');
+    }
+}
+document.addEventListener('keyup', escKey)
 
 
 const links = document.querySelector('.nav-link');
